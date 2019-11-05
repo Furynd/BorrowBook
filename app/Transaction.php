@@ -11,10 +11,10 @@ class Transaction extends Model
         return $this->belongsTo('App\User');
     }
 
-    public function product()
+    public function book()
     {
         return $this->belongsTo('App\Book');
     }
 
-    // protected $fillable = ['product_id', 'user_id', 'quantity'];
+    protected $fillable = ['book_id', 'user_id'];
 }
