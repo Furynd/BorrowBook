@@ -1,43 +1,48 @@
 @extends('layouts.base')
 @section('content')
 <div id ="container" class="mx-auto mt-3">
-    <form action="/profil" method="post" enctype="multipart/form-data">
+<form action="/borrowBook/public/profil/{{$user->id}}" method="POST" enctype="multipart/form-data">
         @csrf
+        @method('PATCH')
         <div class="row justify-content-center ">
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <input type="file" name="profile_picture" class="form-control-file mb-3" id="profile_picture" required>                      
+                </div>
+            </div>
             <div class="col-md-6">
                 <div class="form-group row">
-                    <label for="userName" class="col-sm-3 col-form-label">Nama</label>
-                <input type="text" name="userName" id="userName" class="form-control col-sm-9" value="{{$user->name}}">
+                    <label for="name" class="col-sm-3 col-form-label">Nama</label>
+                <input type="text" name="name" id="name" class="form-control col-sm-9" value="{{$user->name}}">
                 </div>
                 <div class="form-group row">
-                    <label for="userEmail" class="col-sm-3 col-form-label">E-mail</label>
-                    <input type="text" name="userEmail" class="form-control col-sm-9" id="userEmail" value="{{$user->email}}">
+                    <label for="email" class="col-sm-3 col-form-label">E-mail</label>
+                    <input type="text" name="email" class="form-control col-sm-9" id="email" value="{{$user->email}}">
                 </div>
                 <div class="form-group row">
-                    <label for="userPhone" class="col-sm-3 col-form-label">No. Telp</label>
-                    <input type="text" name="userPhone" class="form-control col-sm-9" id="userPhone" value="{{$user->phone_number}}">
+                    <label for="phone_number" class="col-sm-3 col-form-label">No. Telp</label>
+                    <input type="text" name="phone_number" class="form-control col-sm-9" id="phone_number" value="{{$user->phone_number}}">
                 </div>
                 <div class="form-group row">
-                    <label for="userKTP" class="col-sm-3 col-form-label">No. KTP</label>
-                    <input type="text" name="userKTP" class="form-control col-sm-9" id="userKTP" value="{{$user->ktp_number}}">
+                    <label for="ktp_number" class="col-sm-3 col-form-label">No. KTP</label>
+                    <input type="text" name="ktp_number" class="form-control col-sm-9" id="ktp_number" value="{{$user->ktp_number}}">
                 </div>
                 <div class="form-group row">
-                    <label for="userAddress" class="col-sm-3 col-form-label">Alamat</label>
-                    <input type="text" name="Address" class="form-control col-sm-9" id="Address" value="{{$user->address}}">
+                    <label for="address" class="col-sm-3 col-form-label">Alamat</label>
+                    <input type="text" name="address" class="form-control col-sm-9" id="address" value="{{$user->address}}">
                 </div>
                 <div class="form-group row">
-                    <label for="kotaName" class="col-sm-3 col-form-label">Kota</label>
-                    {{-- <select name="kotaName" class="form-control" id="kotaName" required> --}}
-                        {{-- <option selected>{{$user->city}}</option>
-                        @foreach ($city as $citya)
-                            <option value="{{$citya->id}}">{{$citya->name}}</option>
+                    <label for="city_id" class="col-sm-3 col-form-label">Kota</label>
+                    <select name="city_id" class="form-control col-sm-9" id="city_id" required>
+                        <option selected>{{$user->city}}</option>
+                        @foreach ($city as $acity)
+                            <option value="{{$acity->id}}">{{$acity->name}}</option>
                         @endforeach
-                    </select> --}}
-                    <input name="kotaName" class="form-control col-sm-9" id="kotaName" value="{{$user->city_id}}">
+                    </select>
                 </div>
                 <div class="form-group row">
-                    <label for="userBank" class="col-sm-3 col-form-label">No. Rekening</label>
-                    <input type="text" name="userBank" class="form-control col-sm-9" id="userBank" value="{{$user->bank_number}}">
+                    <label for="bank_number" class="col-sm-3 col-form-label">No. Rekening</label>
+                    <input type="text" name="bank_number" class="form-control col-sm-9" id="bank_number" value="{{$user->bank_number}}">
                 </div>
                 <div class="form-group float-right">
                     <button type="submit" class="btn btn-warning">Confirm</button>

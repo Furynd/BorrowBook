@@ -5,10 +5,16 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\City;
 
 class User extends Authenticatable
 {
     use Notifiable;
+
+    public function city()
+    {
+        return $this->belongsTo('App\City', 'foreign_key');
+    }
 
     /**
      * The attributes that are mass assignable.

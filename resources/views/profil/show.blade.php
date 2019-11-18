@@ -3,24 +3,7 @@
 <div id ="container" class="mx-auto mt-3">
     <div class="row justify-content-center ">
         <div class="col-sm-2">
-            <form action="/profil" method="post" enctype="multipart/form-data">
-                <div class="form-group">
-                    <img src="" id="profile-img-tag" class="rounded-circle" width="200px" />
-                    <input type="file" name="profilPicture" class="form-control-file mb-3" id="profilPicture" required>                      
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary">upload</button>
-                </div> 
-                @if($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach($errors->all() as $error)
-                            <li>{{$error}}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif                                 
-            </form>
+            <img src="" id="profile-img-tag" class="rounded-circle" width="200px" />
         </div>
         <div class="col-md-6">
             <div class="form-group row">
@@ -52,7 +35,7 @@
                 <input type="text" name="userBank" class="form-control col-sm-9" id="userBank" value="{{$user->bank_number}}" readonly>
             </div>
             <div class="form-group float-right">
-                <button type="button" href="" class="btn btn-primary">Edit Profile</button>
+                <a href="/borrowBook/public/profil/{{$user->id}}/edit"><button type="button" class="btn btn-primary">Edit Profile</button></a>
             </div>        
         </div>
     </div> 
