@@ -47,9 +47,10 @@ class profilController extends Controller
      */
     public function show($id)
     {
-        $user = User::findOrFail($id);
-        // $user = auth()->user();
-        return view('profil.show')->with('user', $user);
+        // $user = User::findOrFail($id);
+        $user = auth()->user();
+        $city = City::findOrFail($user->city_id);
+        return view('profil.show')->with(['user' => $user, 'city' => $city]);
     }
 
     /**
@@ -95,7 +96,7 @@ class profilController extends Controller
             // Ext
             $ext = $request->file('profile_picture')->extension();
             // Filename to store
-            $filenameToStore = $filename . '_' . time() . '_' . $ext;
+            $filenameToStore = $filename . '_' . time() . '.' . $ext;
             // Upload
             $path = $request->file('profile_picture')->storeAs('public/profile_pictures', $filenameToStore);
         } else {
@@ -118,7 +119,7 @@ class profilController extends Controller
 
         $user->save();
 
-        return view('profil.show')->with('user', $user);
+        return profilController::show($user->id);
     }
 
     /**

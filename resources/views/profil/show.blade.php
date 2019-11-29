@@ -3,7 +3,7 @@
 <div id ="container" class="mx-auto mt-3">
     <div class="row justify-content-center ">
         <div class="col-sm-2">
-            <img src="" id="profile-img-tag" class="rounded-circle" width="200px" />
+        <img src="../storage/profile_pictures/{{$user->profile_pictures}}" alt ="{{$user->name}}" id="profile-img-tag" class="rounded-circle" width="200px" />
         </div>
         <div class="col-md-6">
             <div class="form-group row">
@@ -28,7 +28,7 @@
             </div>
             <div class="form-group row">
                 <label for="kotaName" class="col-sm-3 col-form-label">Kota</label>
-                <input name="kotaName" class="form-control col-sm-9" id="kotaName" value="{{$user->city_id}}" readonly>
+                <input name="kotaName" class="form-control col-sm-9" id="kotaName" value="{{$city->name}}" readonly>
             </div>
             <div class="form-group row">
                 <label for="userBank" class="col-sm-3 col-form-label">No. Rekening</label>

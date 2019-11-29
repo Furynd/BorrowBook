@@ -7,7 +7,8 @@
         <div class="row justify-content-center ">
             <div class="col-sm-2">
                 <div class="form-group">
-                    <input type="file" name="profile_picture" class="form-control-file mb-3" id="profile_picture" required>                      
+                    <img src="../../storage/profile_pictures/{{$user->profile_pictures}}" id="profile-img-tag" class="rounded-circle" width="200px" />
+                    <input type="file" name="profile_picture" class="form-control-file mb-3" id="profile_picture" >                      
                 </div>
             </div>
             <div class="col-md-6">
@@ -60,4 +61,22 @@
         </div> 
     </form>
 </div>
+@endsection
+
+@section('scripts')
+<script type="text/javascript">
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function (e) {
+                $('#profile-img-tag').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $("#profile_picture").change(function(){
+        readURL(this);
+    });
+</script>
 @endsection

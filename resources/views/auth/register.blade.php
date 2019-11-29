@@ -40,6 +40,18 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="ktp_number" class="col-md-4 col-form-label text-md-right">No. KTP</label>
+                            <div class="col-md-6">
+                                <input type="text" name="ktp_number" class="form-control @error('ktp_number') is-invalid @enderror" id="ktp_number" value="{{ old('ktp_number') }}" required>
+                                @error('ktp_number')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
