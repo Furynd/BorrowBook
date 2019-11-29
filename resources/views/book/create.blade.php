@@ -1,16 +1,13 @@
 @extends('layouts.base')
 
 @section('content')
-    <form action="/book" method="post" enctype="multipart/form-data">
+    <form action="/borrowBook/public/book" method="post" enctype="multipart/form-data">
         @csrf
         <div id ="container" class="mx-auto mt-3">
             <div class="row justify-content-center ">
                 <div class="col-sm-2">
-                    <img src="" id="cover_picture" class="img" width="200px" />
+                    <img src="" id="cover_picture_tag" class="img" width="200px" />
                     <input type="file" name="cover_picture" class="form-control-file mb-3" id="cover_picture" required>
-                    <div class="form-group float-left">
-                        <button type="button" href="" class="btn btn-primary">Edit Profile</button>
-                    </div>  
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
@@ -26,7 +23,7 @@
             
                     <div class="form-group">
                         <label for="summary">Sinopsis</label>
-                        <textarea name="summary" class="form-control" id="summary" cols="30" rows="10" placeholder="Enter Description of book"></textarea>
+                        <textarea name="summary" class="form-control" id="summary" cols="30" rows="5" placeholder="Enter Description of book"></textarea>
                     </div>
             
                     <div class="form-group">
@@ -46,4 +43,22 @@
             </div> 
         </div>
     </form>
+@endsection
+
+@section('scripts')
+<script type="text/javascript">
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function (e) {
+                $('#cover_picture_tag').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $("#cover_picture").change(function(){
+        readURL(this);
+    });
+</script>
 @endsection

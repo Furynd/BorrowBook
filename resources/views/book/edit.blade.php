@@ -1,7 +1,7 @@
 @extends('layouts.base')
 @section('content')
 <div id ="container" class="mx-auto mt-3">
-    <form action="/book" method="post" enctype="multipart/form-data">
+    <form action="/borrowBook/public/book" method="post" enctype="multipart/form-data">
         @csrf
         <div class="row justify-content-center ">
             <div class="col-md-6">

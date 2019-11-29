@@ -16,5 +16,5 @@ class Book extends Model
         return $this->hasMany('App\Transaction');
     }
 
-    protected $fillable = ['book_name', 'author', 'summary', 'price', 'cover_picture', 'user_id'];
+    protected $fillable = ['book_name', 'author', 'summary', 'price', 'cover_pictures', 'user_id'];
 }
