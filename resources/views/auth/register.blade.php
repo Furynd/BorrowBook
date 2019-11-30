@@ -52,6 +52,24 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="city_id" class="col-md-4 col-form-label text-md-right">Kota</label>
+                            <div class="col-md-6">
+                                <select name="city_id" id="city_id" class="form-control col-sm-9" required>
+                                    <option value="1">Surabaya</option>
+                                    <option value="2">Jakarta</option>
+                                    <option value="3">Bandung</option>
+                                    <option value="4">Semarang</option>
+                                    <option value="5">Jogjakarta</option>
+                                </select>
+                                @error('city_id')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
