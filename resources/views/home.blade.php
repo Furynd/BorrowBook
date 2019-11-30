@@ -20,14 +20,16 @@
                             <div class="row justify-content-center"> 
                     @endif
                                 <div class="col-sm-2">
-                                    <div class="card">
-                                        <img class="card-img" src="/borrowBook/public/storage/cover_pictures/{{$book->cover_pictures}}" alt="book cover" style="min-width: 200px; max-width: 200px; min-height: 300px; max-height: 300px;">
-                                        <div class="card-img-overlay text-white d-flex flex-column justify-content-center">
-                                            {{-- <div class="card-body">
-                                            <a href="#"><h5 class="card-title">{{$book->book_name}}</h5></a>
-                                            </div> --}}
+                                    <a href="/borrowBook/public/book/{{$book->id}}" style="text-decoration:none;" id="link-book-page"> 
+                                        <div class="card">
+                                            <img class="card-img" src="/borrowBook/public/storage/cover_pictures/{{$book->cover_pictures}}" alt="book cover" style="min-width: 200px; max-width: 200px; min-height: 300px; max-height: 300px;">
+                                            <div class="card-img-overlay text-white d-flex flex-column justify-content-center">
+                                                {{-- <div class="card-body">
+                                                <a href="#"><h5 class="card-title">{{$book->book_name}}</h5></a>
+                                                </div> --}}
+                                            </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>    
                     @if ($loop->index == 3 || $loop->index == 7 || $loop->last)
                             </div>    

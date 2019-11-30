@@ -12,7 +12,7 @@
                 <div class="card-deck">
                     @foreach($books as $book)
                         <div class="card mb-3" style="min-width: 15rem; max-width: 15rem; min-height: 10rem;">
-                            {{-- <a href="/borrowBook/public/book/{{$book->id}}" style="text-decoration:none;" id="link-book-page">  --}}
+                            <a href="/borrowBook/public/book/{{$book->id}}" style="text-decoration:none;" id="link-book-page"> 
                             <div class="row no-gutters">
                                 <div class="col-md-4">
                                     <img class="card-img" src="/borrowBook/public/storage/cover_pictures/{{$book->cover_pictures}}" alt="{{$book->bookName}}" style="min-width: 5rem; max-width: 5rem; min-height: 8rem">
@@ -27,7 +27,7 @@
                             <div class="card-footer">
                                 <p class="card-text text-dark">Rp {{$book->price}}</h4>
                             </div>
-                            {{-- </a> --}}
+                            </a>
                         </div>
                     @endforeach
                 </div>
@@ -38,7 +38,7 @@
                 <div class="card-deck">
                     @foreach($borrows as $book)
                         <div class="card mb-3" style="min-width: 15rem; max-width: 15rem;">
-                            <a href="/borrowBook/public/book/{{$book->id}}" style="text-decoration:none;" id="link-book-page"> 
+                            {{-- <a href="/borrowBook/public/book/{{$book->id}}" style="text-decoration:none;" id="link-book-page">  --}}
                             <div class="row no-gutters">
                                 <div class="col-md-4">
                                     <img class="card-img" src="/borrowBook/public/storage/cover_pictures/{{$book->cover_pictures}}" alt="{{$book->bookName}}" style="min-width: 5rem; max-width: 5rem;">
@@ -51,9 +51,14 @@
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <p class="card-text text-dark">Rp {{$book->price}}</h4>
+                            <form action="/borrowBook/public/transaction/{{$book->id}}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-warning">Return</button>
+                            </form>
+                                {{-- <p class="card-text text-dark">Rp {{$book->price}}</h4> --}}
                             </div>
-                            </a>
+                            {{-- </a> --}}
                         </div>
                     @endforeach
                 </div>

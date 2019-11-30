@@ -16,5 +16,5 @@ class Transaction extends Model
         return $this->belongsTo('App\Book');
     }
 
-    protected $fillable = ['book_id', 'user_id'];
+    protected $fillable = ['book_id', 'user_id','days', 'is_cod'];
 }
