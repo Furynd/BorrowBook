@@ -15,8 +15,10 @@ Route::get('/', 'PagesController@index');
 
 Route::resource('profil','profilController');
 Route::resource('book', 'bookController');
-
+Route::resource('transaction', 'transactionController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('admin/home', 'HomeController@adminHome')->name('admin.home')->middleware('is_admin');
+Route::resource('topup', 'topupController');
+// Route::get('/topup', 'pagesController@topup');

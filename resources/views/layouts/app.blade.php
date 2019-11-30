@@ -36,8 +36,8 @@
                             <a class="dropdown-item" href="/borrowBook/public/book">
                                 {{ __('List Buku') }}
                             </a>
-                            <a class="dropdown-item" href="#">
-                                {{ __('Pembayaran') }}
+                            <a class="dropdown-item" href="/borrowBook/public/topup">
+                                {{ __('Top Up') }}
                             </a>
                             <button type="button" class="dropdown-item btn btn-warning" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
